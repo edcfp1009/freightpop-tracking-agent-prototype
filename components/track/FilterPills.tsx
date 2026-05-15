@@ -11,7 +11,7 @@ interface FilterPillsProps {
 
 export default function FilterPills({ activeFilter, onFilterChange }: FilterPillsProps) {
   return (
-    <div className="flex items-center gap-2 px-6 py-3 border-b border-[#E0E0E0] bg-white flex-wrap">
+    <div className="flex items-center gap-2 px-6 py-3 bg-white border-b border-[#E0E0E0] flex-wrap">
       <div className="flex items-center border border-[#E0E0E0] rounded overflow-hidden h-8">
         <input
           type="text"
@@ -35,12 +35,14 @@ export default function FilterPills({ activeFilter, onFilterChange }: FilterPill
             <button
               key={pill}
               onClick={() => onFilterChange(isActive ? null : pill)}
-              className={`rounded-full px-4 py-1.5 text-[13px] font-medium border transition-colors ${
+              className={`rounded-full px-3.5 py-1.5 text-[12px] font-semibold border transition-all ${
                 isActive
                   ? isAgentPill
-                    ? 'bg-[#7E57C2] text-white border-[#7E57C2]'
-                    : 'bg-[#212121] text-white border-[#212121]'
-                  : 'bg-white text-[#212121] border-[#E0E0E0] hover:bg-[#F5F7FA]'
+                    ? 'bg-gradient-to-b from-[#7E57C2] to-[#673AB7] text-white border-[#673AB7] shadow-sm'
+                    : 'bg-[#212121] text-white border-[#212121] shadow-sm'
+                  : isAgentPill
+                    ? 'bg-[#F3E5F5] text-[#7E57C2] border-[#E1BEE7] hover:bg-[#EDE7F6]'
+                    : 'bg-white text-[#424242] border-[#E0E0E0] hover:border-[#BDBDBD] hover:bg-[#FAFAFA]'
               }`}
             >
               {pill}
